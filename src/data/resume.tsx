@@ -148,7 +148,7 @@ export const DATA = {
     {
       school: "Atharva College of Engineering",
       href: "https://atharvacoe.ac.in",
-      degree: "Bachelore Degree of Engineering in Information Technology",
+      degree: "Bachelors Degree of Engineering in Information Technology",
       logoUrl: "/logo.png",
       start: "2024",
       end: "2028",
