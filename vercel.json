@@ -1,5 +1,5 @@
 {
-  "redirects": [
+  "rewrites": [
     {
       "source": "/view-source",
       "destination": "https://github.com/amyssnippet/portfolio"
