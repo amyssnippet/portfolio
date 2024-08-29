@@ -10,7 +10,7 @@ export const DATA = {
   description:
     "Software Engineer. I love building things and helping people. Very active on Github.",
   summary: "Hi, I'm [Amol Yadav](#), a passionate, [MERN Stack](#) and [SaaS UI & Backend Javascript Developer](#) with a knack for transforming complex problems into intuitive solutions. With a strong foundation in [Data Structures and Algorithms](#), I build efficient, scalable, and user-centric SaaS applications. Explore my portfolio to see how I blend creativity and techincal expertise to deliver exceptional digital experiences.",
-  avatarUrl: "/me.png",
+  avatarUrl: "/PSX_20240219_195257.jpg",
   skills: [
     "React",
     "Next.js",
