@@ -2,15 +2,14 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon, Code } from "lucide-react";
 
 export const DATA = {
-  name: "Dillion Verma",
-  initials: "DV",
+  name: "Amol Yadav",
+  initials: "AMY",
   url: "https://amyssnippet.vercel.app",
   location: "Mumbai, MH",
   locationLink: "https://www.google.com/maps/place/mumbai",
   description:
     "Software Engineer. I love building things and helping people. Very active on Github.",
-  summary:
-    "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
+  summary: "Hi, I'm [Amol Yadav](#), a passionate, [MERN Stack](#) and [SaaS UI & Backend Javascript Developer](#) with a knack for transforming complex problems into intuitive solutions. With a strong foundation in [Data Structures and Algorithms](#), I build efficient, scalable, and user-centric SaaS applications. Explore my portfolio to see how I blend creativity and techincal expertise to deliver exceptional digital experiences.",
   avatarUrl: "/me.png",
   skills: [
     "React",
