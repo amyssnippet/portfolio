@@ -192,6 +192,13 @@ export const DATA = {
             "MDX",
             "Radix UI",
           ],
+           links: [
+{
+type: "Website",
+href: "https://schemadoc.vercel.app/",
+icon: <Icons.globe className="size-3" />,
+},
+],
           image: "",
           video: "https://lisaorg.github.io/lisamedia/tutorial.mp4.mp4",
         },
