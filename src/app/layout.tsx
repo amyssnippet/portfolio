@@ -14,10 +14,7 @@ const fontSans = FontSans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
-  title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
-  },
+  title: DATA.name,
   description: DATA.description,
   openGraph: {
     title: `${DATA.name}`,
