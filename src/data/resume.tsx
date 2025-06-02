@@ -200,6 +200,7 @@ export const DATA = {
     },
   ],
   projects: [
+    
     {
       title: "Wavyy",
       href: "https://wavyy.app",
