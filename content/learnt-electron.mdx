@@ -1,0 +1,215 @@
+---
+title: "My First Electron Desktop App: A Journey of Learning and Creation"
+publishedAt: "2024-12-12"
+summary: "I learnt Electron and made my First Electron Desktop App"
+---
+
+On December 12, 2024, I embarked on an exciting journey to create my very first desktop application using Electron. It was an incredible experience, and I couldn't wait to share the lessons I learned, the challenges I faced, and the sense of accomplishment that came with building my own cross-platform app.
+
+## What is Electron?
+
+Before diving into the project, I had a basic understanding of what Electron is. For those who are new, Electron is a framework for building desktop applications using web technologies like HTML, CSS, and JavaScript. It allows you to create cross-platform apps (Windows, macOS, Linux) using the same codebase, making it a popular choice for developers familiar with web development.
+
+## Getting Started
+
+To start with, I set up my development environment. Here's a quick overview of what I did:
+
+### 1. Install Node.js and npm
+
+Since Electron is built on top of Node.js, the first step was to make sure I had Node.js installed. I went to the Node.js website and downloaded the latest version, which also installed npm (Node Package Manager).
+
+### 2. Install Electron
+
+Once Node.js was installed, I opened up the terminal (Command Prompt on Windows or Terminal on macOS/Linux) and installed Electron globally using npm:
+
+```bash
+npm install -g electron
+```
+
+### 3. Set Up My Project
+
+Next, I created a folder for my app and initialized a new Node.js project in it by running:
+
+```bash
+npm init -y
+```
+
+This created a package.json file, where I would define my dependencies and scripts.
+
+### 4. Installing Electron Locally
+
+Instead of installing Electron globally (which is fine for experimentation), I decided to install it locally within my project:
+
+```bash
+npm install electron --save-dev
+```
+
+This way, the Electron dependency was added to my package.json file, and I could manage my version of Electron more effectively.
+
+### 5. Create Basic Files
+
+I created the necessary files for my application:
+
+- `index.html`: The front-end HTML file for my app's user interface.
+- `main.js`: The JavaScript file that controls the app's behavior using Electron’s APIs.
+- `style.css`: For styling the app.
+
+## Building the App
+
+The app I created was a basic To-Do List app. It didn't do anything too complex, but it was a great way to get familiar with the Electron framework. Here’s a breakdown of the core elements I worked with.
+
+### 1. `main.js`: The Electron Main Process
+
+The main process is the backbone of an Electron app. It controls the lifecycle of the application and manages windows. In main.js, I initialized the BrowserWindow, which is the window that displays the web content (HTML, CSS, JS).
+
+Here’s the basic code for creating a window:
+
+```javascript
+const { app, BrowserWindow } = require('electron');
+const path = require('path');
+
+function createWindow() {
+    const win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
+
+    win.loadFile('index.html');
+}
+
+app.whenReady().then(() => {
+    createWindow();
+
+    app.on('activate', () => {
+        if (BrowserWindow.getAllWindows().length === 0) {
+            createWindow();
+        }
+    });
+});
+
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
+});
+```
+
+### 2. `index.html`: The User Interface
+
+This is the file where I wrote the HTML structure for my app. It’s a simple list with an input field where I can add tasks and buttons to remove them.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>My To-Do List</h1>
+    <input type="text" id="task-input" placeholder="Add a new task">
+    <button id="add-btn">Add Task</button>
+    <ul id="task-list"></ul>
+    <script src="renderer.js"></script>
+</body>
+</html>
+```
+
+### 3. `style.css`: The App Styling
+
+For the styling, I kept it simple but clean. Here’s a quick look at my CSS:
+
+```css
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+input {
+    padding: 10px;
+    width: 60%;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+```
+
+### 4. `renderer.js`: The App Logic
+
+The renderer.js file handled the interactivity of the app. It added functionality to the "Add Task" button, allowed tasks to be displayed dynamically, and removed tasks when clicked.
+
+```javascript
+document.getElementById('add-btn').addEventListener('click', function() {
+    const taskInput = document.getElementById('task-input');
+    const taskText = taskInput.value.trim();
+    
+    if (taskText) {
+        const taskItem = document.createElement('li');
+        taskItem.textContent = taskText;
+        taskItem.addEventListener('click', function() {
+            taskItem.remove();
+        });
+        document.getElementById('task-list').appendChild(taskItem);
+        taskInput.value = '';
+    }
+});
+```
+
+Running the App
+Once all the files were set up, it was time to test the app. I added a start script to my package.json file:
+
+```json
+"scripts": {
+    "start": "electron ."
+}
+```
+
+Now, running the command npm start in the terminal launched my Electron app, and I could interact with the To-Do List!
+
+## Challenges Faced
+
+While building my first Electron app, I did encounter a few challenges:
+
+- App Window Resizing: I had some difficulty adjusting the window size properly in the beginning. However, after reading through the documentation, I learned how to set the window size and make it responsive.
+- File Handling: Since I wasn’t using a database, I wanted to persist the tasks even after closing the app. I explored using localStorage and learned how to store and retrieve data.
+- Cross-Platform Testing: Since Electron allows for cross-platform apps, I was eager to test my app on both macOS and Windows. Fortunately, it worked seamlessly, but I had to make sure that I used platform-specific APIs where needed.
+
+## What’s Next?
+
+After successfully building my first app, I’m excited to continue learning about Electron. Next on my list:
+
+- Adding file persistence (saving tasks to a file or local database)
+- Integrating notifications for task reminders
+- Enhancing the UI with animations and better design principles
+- Packaging and distributing my app for different operating systems
+
+## Conclusion
+Building my first Electron app was an enriching experience that expanded my understanding of web technologies and desktop development. I’m excited about the possibilities and can’t wait to develop more complex apps with Electron in the future!
+
+If you’re just starting with Electron, I highly recommend jumping in and experimenting. The documentation is great, and the community is incredibly supportive.
+
+Thanks for reading about my journey!
+
+Happy coding! 👨‍💻🚀
